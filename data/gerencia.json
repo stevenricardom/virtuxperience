@@ -1,0 +1,187 @@
+{
+  "biome_id": "gerencia",
+  "biome_name": "Distrito de Dirección & Gestión Estratégica",
+  "accent_color": "#4682B4",
+  "guardian": {
+    "name": "KRONOS-4 (Director Ejecutivo de Estrategia)",
+    "learning_capsule": [
+      "¡Bienvenido al Centro de Mando Ejecutivo! Aquí transformamos la complejidad organizacional en dirección estratégica clara, ágil y sostenible.",
+      "Liderar proyectos de alto impacto no consiste en trabajar más horas, sino en priorizar con criterio riguroso. Dominar la Matriz de Eisenhower (Urgencia vs Impacto) y balancear la capacidad finita de los equipos evita la sobrecarga y maximiza la entrega continua de valor.",
+      "Para estabilizar el Núcleo Ejecutivo y recuperar el Fragmento Azul Acero del Nexo, deberás superar los 3 Nodos Estratégicos: el Muro Kanban de Priorización, la Asignación de Capacidad Multiequipo y el Diagnóstico Directivo Saber Pro."
+    ]
+  },
+  "reward": {
+    "fragment_id": "fragment_gerencia",
+    "badge_id": "badge_estratega_agil",
+    "badge_name": "Estratega Ágil",
+    "completion_xp": 150,
+    "unlock_cosmetic": "strategist_steel"
+  },
+  "adaptive_parameters": {
+    "consecutive_failures_trigger": 3,
+    "eliminated_options_count": 2,
+    "free_hint_enabled": true
+  },
+  "challenges": [
+    {
+      "id": "ger_kanban_01",
+      "type": "priority_matrix",
+      "thought_axis": "Gestión Estratégica y Liderazgo",
+      "difficulty": 1,
+      "title": "Nodo I: Matriz de Priorización Estratégica (Eisenhower & Kanban)",
+      "prompt": "Clasifica y secuencia las iniciativas estratégicas según su nivel de Impacto y Urgencia para optimizar el flujo de entrega de valor en el sprint corporativo:",
+      "tasks": [
+        {
+          "id": "task_sec_patch",
+          "title": "Parche Crítico de Ciberseguridad",
+          "quadrant": "q1",
+          "quadrant_name": "Urgente & Alto Impacto",
+          "impact": "Alto",
+          "urgency": "Alta",
+          "recommended_action": "Ejecutar de Inmediato"
+        },
+        {
+          "id": "task_cloud_arch",
+          "title": "Modernización de Arquitectura Cloud",
+          "quadrant": "q2",
+          "quadrant_name": "No Urgente & Alto Impacto",
+          "impact": "Alto",
+          "urgency": "Baja",
+          "recommended_action": "Planificar Estratégicamente"
+        },
+        {
+          "id": "task_ops_report",
+          "title": "Automatización de Reporte Operativo Diario",
+          "quadrant": "q3",
+          "quadrant_name": "Urgente & Bajo Impacto",
+          "impact": "Bajo",
+          "urgency": "Alta",
+          "recommended_action": "Delegar o Automatizar"
+        },
+        {
+          "id": "task_ui_cosmetics",
+          "title": "Rediseño Cosmético de Favicons",
+          "quadrant": "q4",
+          "quadrant_name": "No Urgente & Bajo Impacto",
+          "impact": "Bajo",
+          "urgency": "Baja",
+          "recommended_action": "Descartar o Posponer"
+        }
+      ],
+      "correct_sequence": [
+        "task_sec_patch",
+        "task_cloud_arch",
+        "task_ops_report",
+        "task_ui_cosmetics"
+      ],
+      "quadrants": [
+        {"id": "q1", "label": "Q1: Urgente & Importante (Hacer Ya)", "expected_task": "task_sec_patch"},
+        {"id": "q2", "label": "Q2: Importante & No Urgente (Planificar)", "expected_task": "task_cloud_arch"},
+        {"id": "q3", "label": "Q3: Urgente & No Importante (Delegar)", "expected_task": "task_ops_report"},
+        {"id": "q4", "label": "Q4: Ni Urgente Ni Importante (Descartar)", "expected_task": "task_ui_cosmetics"}
+      ],
+      "correct_mapping": {
+        "q1": "task_sec_patch",
+        "q2": "task_cloud_arch",
+        "q3": "task_ops_report",
+        "q4": "task_ui_cosmetics"
+      },
+      "hint": "Prioriza primero lo que amenaza la continuidad operativa inmediata (Seguridad Q1), seguido de la inversión que previene crisis futuras y crea valor sostenible (Arquitectura Q2).",
+      "hint_cost_xp": 10,
+      "xp_reward": 50,
+      "explanation_on_error": "La Matriz Eisenhower y el flujo Kanban establecen el siguiente orden de resolución: 1. Q1 Urgente & Importante (Parche de Seguridad), 2. Q2 Estratégico no urgente (Arquitectura Cloud), 3. Q3 Urgente delegable (Reporte Operativo), 4. Q4 No crítico (Favicons)."
+    },
+    {
+      "id": "ger_resources_02",
+      "type": "resource_allocation",
+      "thought_axis": "Gestión Estratégica y Liderazgo",
+      "difficulty": 2,
+      "title": "Nodo II: Asignación de Recursos & Balance de Capacidad",
+      "prompt": "Distribuye los perfiles especialistas en los proyectos estratégicos satisfaciendo la capacidad técnica requerida sin sobrecargar ni generar cuellos de botella:",
+      "projects": [
+        {
+          "id": "proj_a",
+          "name": "Plataforma Core Cloud & Fintech",
+          "required_capacity": 100,
+          "description": "Sistema transaccional de alta disponibilidad con tolerancia a fallos."
+        },
+        {
+          "id": "proj_b",
+          "name": "Ecosistema Móvil Corporativo",
+          "required_capacity": 100,
+          "description": "Aplicación nativa centrada en experiencia de usuario y adopción ágil."
+        }
+      ],
+      "resources": [
+        {
+          "id": "res_cloud_arch",
+          "name": "Arquitecto Cloud & DevOps",
+          "capacity": 50,
+          "capacity_value": 50,
+          "specialty": "Infraestructura & Resiliencia"
+        },
+        {
+          "id": "res_tech_lead",
+          "name": "Líder Técnico Backend",
+          "capacity": 50,
+          "capacity_value": 50,
+          "specialty": "Lógica Transaccional & APIs"
+        },
+        {
+          "id": "res_ux_designer",
+          "name": "Diseñador Senior UX/UI",
+          "capacity": 50,
+          "capacity_value": 50,
+          "specialty": "Investigación & Sistemas de Diseño"
+        },
+        {
+          "id": "res_mobile_dev",
+          "name": "Desarrollador Móvil Senior",
+          "capacity": 50,
+          "capacity_value": 50,
+          "specialty": "Frameworks Móviles & Reactividad"
+        }
+      ],
+      "correct_assignments": {
+        "proj_a": ["res_cloud_arch", "res_tech_lead"],
+        "proj_b": ["res_ux_designer", "res_mobile_dev"]
+      },
+      "hint": "Empareja cada iniciativa con los dos especialistas cuyas capacidades sumen el 100% de la demanda del proyecto según su dominio técnico.",
+      "hint_cost_xp": 10,
+      "xp_reward": 50,
+      "explanation_on_error": "El balance óptimo requiere emparejar: Arquitecto + Tech Lead al Proyecto A Cloud Core (50+50=100 pts), y Diseñador UX + Dev Móvil al Proyecto B App Móvil (50+50=100 pts)."
+    },
+    {
+      "id": "ger_saberpro_03",
+      "type": "saber_pro_management",
+      "thought_axis": "Gestión Estratégica y Liderazgo",
+      "difficulty": 3,
+      "time_limit_seconds": 60,
+      "title": "Nodo III: Diagnóstico Directivo Saber Pro — Ley de Brooks y Gestión de Alcance",
+      "prompt": "Un proyecto estratégico de desarrollo de software corporativo acumula un retraso de 6 semanas frente a la fecha de lanzamiento comprometida. Para mitigar la demora, la dirección propone incorporar de inmediato a 8 desarrolladores junior al equipo de trabajo.\n\nDe acuerdo con la Ley de Brooks y los principios de gestión ágil de operaciones, ¿cuál es el impacto previsible de esta medida y la recomendación estratégica correcta?",
+      "options": [
+        {
+          "id": "a",
+          "label": "El tiempo de entrega se reducirá proporcionalmente al número de desarrolladores agregados, garantizando el cumplimiento del cronograma inicial."
+        },
+        {
+          "id": "b",
+          "label": "El retraso aumentará debido al costo de inducción, capacitación y multiplicación de canales de comunicación; se debe renegociar el alcance del MVP en lugar de sumar personal tardíamente."
+        },
+        {
+          "id": "c",
+          "label": "La calidad del código aumentará de inmediato porque los nuevos integrantes relevarán a los seniors en las decisiones críticas de arquitectura."
+        },
+        {
+          "id": "d",
+          "label": "Se debe imponer horas extras obligatorias indefinidas a todo el personal sin modificar el alcance ni la fecha límite pactada."
+        }
+      ],
+      "correct_option": "b",
+      "hint": "Recuerda el postulado de Fred Brooks: 'Agregar personal a un proyecto de software retrasado lo retrasará aún más' debido a los costos de comunicación y acoplamiento.",
+      "hint_cost_xp": 10,
+      "xp_reward": 60,
+      "explanation_on_error": "La Ley de Brooks dictamina que agregar personal tardío incrementa drásticamente las líneas de coordinación (n*(n-1)/2) y consume tiempo valioso de los desarrolladores experimentados capacitando a los nuevos (Opción B). La solución directiva acertada es priorizar y reducir el alcance de la entrega."
+    }
+  ]
+}

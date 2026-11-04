@@ -1,0 +1,471 @@
+[gd_scene load_steps=5 format=3 uid="uid://gerenciaminigame001"]
+
+[ext_resource type="Theme" path="res://resources/themes/main_pixel_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://scenes/biomes/gerencia/GerenciaMinigame.gd" id="2_script"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+
+[node name="GerenciaMinigame" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="BackgroundOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.06, 0.09, 0.96)
+
+[node name="MainPanel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InteriorBackdrop" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06, 0.08, 0.12, 0.98)
+
+[node name="HeaderDivider" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 31.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.275, 0.51, 0.706, 0.4)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+modulate = Color(0.392, 0.71, 0.965, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "CENTRO DE MANDO EJECUTIVO: GERENCIA+"
+
+[node name="Spacer1" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NodeIndicatorLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "CÁPSULA KRONOS-4"
+
+[node name="TimerLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+visible = false
+modulate = Color(0.392, 0.71, 0.965, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "TIEMPO: 60s"
+
+[node name="ReturnButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(40, 18)
+layout_mode = 2
+text = " SALIR "
+
+[node name="CapsulePanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="CapsuleTitle" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "TRANSMISIÓN ESTRATÉGICA — KRONOS-4 (Directora de Operaciones Ágiles)"
+
+[node name="CapsuleText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="CapsuleFooter" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+text = "← Anterior"
+
+[node name="PageLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Página 1 de 3"
+
+[node name="Spacer2" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+text = "Siguiente →"
+
+[node name="ChallengeView" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ThoughtAxisLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+modulate = Color(0.7, 0.8, 0.9, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Eje: Pensamiento Estratégico y Organizacional"
+
+[node name="PromptText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+custom_minimum_size = Vector2(588, 36)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="KanbanContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="KanbanGrid" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="SlotQ1" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanGrid"]
+custom_minimum_size = Vector2(288, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="SlotQ2" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanGrid"]
+custom_minimum_size = Vector2(288, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="SlotQ3" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanGrid"]
+custom_minimum_size = Vector2(288, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="SlotQ4" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanGrid"]
+custom_minimum_size = Vector2(288, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="BankLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Tareas Operativas & Estratégicas (Selecciona una tarea y colócala en el cuadrante correspondiente):"
+
+[node name="TaskBankGrid" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Task0" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/TaskBankGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Task1" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/TaskBankGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Task2" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/TaskBankGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Task3" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/TaskBankGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="KanbanActionRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VerifyKanbanBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanActionRow"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 2
+text = " Verificar Matriz de Prioridades "
+
+[node name="ResetKanbanBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/KanbanContainer/KanbanActionRow"]
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 2
+text = " Restablecer Matriz "
+
+[node name="ResourceContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MetricBarsHBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ProjectsHBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ProjectA_Box" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="ProjA_Title" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox/ProjectA_Box"]
+modulate = Color(0.392157, 0.709804, 0.964706, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Proyecto A: Infraestructura Cloud Core"
+
+[node name="ProjABtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox/ProjectA_Box"]
+custom_minimum_size = Vector2(284, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="ProjectB_Box" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="ProjB_Title" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox/ProjectB_Box"]
+modulate = Color(0, 0.901961, 0.462745, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Proyecto B: App Móvil Corporativa"
+
+[node name="ProjBBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ProjectsHBox/ProjectB_Box"]
+custom_minimum_size = Vector2(284, 28)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="ResourcePoolLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Equipo Multidisciplinario (Selecciona un profesional y haz clic en el proyecto de destino):"
+
+[node name="ResourcePoolGrid" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Res0" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcePoolGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Res1" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcePoolGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Res2" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcePoolGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="Res3" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcePoolGrid"]
+custom_minimum_size = Vector2(288, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="ResourcesActionRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VerifyResourcesBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcesActionRow"]
+custom_minimum_size = Vector2(170, 20)
+layout_mode = 2
+text = " Verificar Asignación de Capacidad "
+
+[node name="ResetResourcesBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/ResourceContainer/ResourcesActionRow"]
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 2
+text = " Restablecer Recursos "
+
+[node name="OptionsContainer" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="OptionA" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="OptionB" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="OptionC" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="OptionD" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="FeedbackBar" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="FeedbackLabel" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar"]
+custom_minimum_size = Vector2(584, 24)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar"]
+layout_mode = 2
+
+[node name="HintButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+custom_minimum_size = Vector2(90, 20)
+layout_mode = 2
+text = "Pista (-10 XP)"
+
+[node name="AdaptiveNoticeLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+visible = false
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "¡Asistencia adaptativa activa!"
+
+[node name="Spacer3" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+visible = false
+custom_minimum_size = Vector2(140, 20)
+layout_mode = 2
+text = "Siguiente Nodo →"
+
+[node name="CompletionPanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CompletionDetails" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="ReturnToLabButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel"]
+custom_minimum_size = Vector2(220, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Regresar a la Sala Ejecutiva "
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
