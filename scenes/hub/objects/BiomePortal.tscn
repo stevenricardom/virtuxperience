@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://biomeportal001"]
+
+[ext_resource type="Script" path="res://scenes/hub/objects/BiomePortal.gd" id="1_portal_gd"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="2_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="3_font"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_portal_obstacle"]
+size = Vector2(20, 10)
+
+[node name="BiomePortal" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_portal_gd")
+
+[node name="PortalCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_portal")
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(0, 4)
+collision_layer = 1
+collision_mask = 0
+
+[node name="ObstacleShape" type="CollisionShape2D" parent="Obstacle"]
+shape = SubResource("RectangleShape2D_portal_obstacle")
+
+[node name="PortalGroundGlow" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.28)
+polygon = PackedVector2Array(-24, 16, -14, 21, 0, 22, 14, 21, 24, 16, 26, 8, 16, 2, -16, 2, -26, 8)
+
+[node name="PedestalBase" type="Polygon2D" parent="."]
+color = Color(0.2, 0.24, 0.3, 0.96)
+polygon = PackedVector2Array(-18, 16, 18, 16, 20, 11, 16, 7, -16, 7, -20, 11)
+
+[node name="PortalFrame" type="Polygon2D" parent="."]
+color = Color(0.85, 0.88, 0.92, 1)
+polygon = PackedVector2Array(-15, 14, 15, 14, 17, 8, 15, -8, 9, -16, 0, -19, -9, -16, -15, -8, -17, 8)
+
+[node name="OuterArchTrim" type="Line2D" parent="."]
+closed = true
+width = 1.5
+default_color = Color(1, 0.92, 0.65, 0.85)
+points = PackedVector2Array(-15, 14, 15, 14, 17, 8, 15, -8, 9, -16, 0, -19, -9, -16, -15, -8, -17, 8)
+
+[node name="PortalAura" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.72)
+polygon = PackedVector2Array(-10, 11, 10, 11, 12, 2, 10, -7, 5, -13, 0, -15, -5, -13, -10, -7, -12, 2)
+
+[node name="InnerVortexCore" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0.88)
+polygon = PackedVector2Array(-5, 8, 5, 8, 7, 1, 5, -5, 0, -9, -5, -5, -7, 1)
+
+[node name="PortalSparks" type="CPUParticles2D" parent="."]
+position = Vector2(0, 4)
+amount = 10
+lifetime = 1.6
+preprocess = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 6)
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -14)
+initial_velocity_min = 6.0
+initial_velocity_max = 14.0
+scale_amount_min = 1.2
+scale_amount_max = 2.0
+color = Color(1, 1, 1, 0.75)
+
+[node name="PromptBadge" type="NinePatchRect" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PromptLabel" type="Label" parent="PromptBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

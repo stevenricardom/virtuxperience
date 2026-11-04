@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://bsp803t2k6eqq"]
+
+[ext_resource type="Script" path="res://scenes/hub/objects/NexusAltar.gd" id="1_altar"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="2_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="3_font"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_altar_col"]
+size = Vector2(48, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_altar_int"]
+radius = 32.0
+
+[node name="NexusAltar" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_altar")
+
+[node name="AltarCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_altar_col")
+
+[node name="SanctuaryGlow" type="Polygon2D" parent="."]
+color = Color(1, 0.84, 0.25, 0.28)
+polygon = PackedVector2Array(-38, 18, -24, 25, 0, 27, 24, 25, 38, 18, 42, 0, 38, -18, 24, -25, 0, -27, -24, -25, -38, -18, -42, 0)
+
+[node name="OuterRuneRing" type="Line2D" parent="."]
+closed = true
+width = 1.5
+default_color = Color(1, 0.843, 0, 0.65)
+points = PackedVector2Array(-34, 15, -22, 22, 0, 24, 22, 22, 34, 15, 38, 0, 34, -15, 22, -22, 0, -24, -22, -22, -34, -15, -38, 0)
+
+[node name="BasePedestal" type="Polygon2D" parent="."]
+color = Color(0.16, 0.2, 0.27, 1)
+polygon = PackedVector2Array(-26, 16, 26, 16, 32, 7, 32, -7, 26, -16, -26, -16, -32, -7, -32, 7)
+
+[node name="InnerStone" type="Polygon2D" parent="."]
+color = Color(0.26, 0.32, 0.42, 1)
+polygon = PackedVector2Array(-22, 12, 22, 12, 26, 5, 26, -5, 22, -12, -22, -12, -26, -5, -26, 5)
+
+[node name="GoldInlayRing" type="Line2D" parent="."]
+closed = true
+width = 1.5
+default_color = Color(1, 0.85, 0.35, 0.88)
+points = PackedVector2Array(-22, 12, 22, 12, 26, 5, 26, -5, 22, -12, -22, -12, -26, -5, -26, 5)
+
+[node name="CenterGemHalo" type="Polygon2D" parent="."]
+color = Color(1, 0.92, 0.55, 0.45)
+polygon = PackedVector2Array(0, -11, 11, 0, 0, 11, -11, 0)
+
+[node name="CenterGem" type="Polygon2D" parent="."]
+color = Color(1, 0.92, 0.65, 0.98)
+polygon = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
+
+[node name="SocketsContainer" type="Node2D" parent="."]
+
+[node name="Socket_neuromath" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(18, -7)
+color = Color(0, 0.898, 1, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="Socket_comunicarte" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(-18, -7)
+color = Color(1, 0.165, 0.522, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="Socket_gerencia" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(0, -12)
+color = Color(0.275, 0.51, 0.706, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="Socket_activatuidea" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(18, 7)
+color = Color(1, 0.549, 0, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="Socket_misionales" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(-18, 7)
+color = Color(0.298, 0.686, 0.314, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="Socket_voxcivitas" type="Polygon2D" parent="SocketsContainer"]
+position = Vector2(0, 12)
+color = Color(0.612, 0.153, 0.69, 1)
+polygon = PackedVector2Array(0, -4.5, 4.5, 0, 0, 4.5, -4.5, 0)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_altar_int")
+
+[node name="PromptBadge" type="NinePatchRect" parent="InteractionArea"]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 18.0
+offset_right = 8.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PromptLabel" type="Label" parent="InteractionArea/PromptBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
