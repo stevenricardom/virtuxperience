@@ -1,0 +1,92 @@
+[gd_resource type="Theme" format=3]
+
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="1_24dno"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/button_disabled.png" id="2_fikcm"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/button_hover.png" id="3_te8xp"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/button_normal.png" id="4_t6pcx"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/button_pressed.png" id="5_kfamm"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="6_1heem"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehk2o"]
+texture = ExtResource("2_fikcm")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_suioa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n8evo"]
+texture = ExtResource("3_te8xp")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rku8l"]
+texture = ExtResource("4_t6pcx")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+expand_margin_top = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71hvp"]
+texture = ExtResource("5_kfamm")
+texture_margin_left = 5.0
+texture_margin_top = 4.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxgl5"]
+texture = ExtResource("6_1heem")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="FontVariation" id="FontVariation_bold"]
+base_font = ExtResource("1_24dno")
+
+[resource]
+default_font = ExtResource("1_24dno")
+default_font_size = 8
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.65, 0.72, 0.8, 1)
+Button/colors/font_hover_color = Color(0, 0.92, 1, 1)
+Button/colors/font_outline_color = Color(0.02, 0.04, 0.08, 0.95)
+Button/colors/font_pressed_color = Color(1, 0.9, 0.4, 1)
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_24dno")
+Button/styles/disabled = SubResource("StyleBoxTexture_ehk2o")
+Button/styles/focus = SubResource("StyleBoxEmpty_suioa")
+Button/styles/hover = SubResource("StyleBoxTexture_n8evo")
+Button/styles/normal = SubResource("StyleBoxTexture_rku8l")
+Button/styles/pressed = SubResource("StyleBoxTexture_71hvp")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.02, 0.04, 0.08, 0.95)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 2
+Label/constants/outline_size = 2
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/font_sizes/font_size = 8
+Label/font_sizes/header_font_size = 12
+Label/font_sizes/title_font_size = 12
+Label/fonts/font = ExtResource("1_24dno")
+Panel/styles/panel = SubResource("StyleBoxTexture_fxgl5")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_fxgl5")
+PopupPanel/styles/panel = SubResource("StyleBoxTexture_fxgl5")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0.02, 0.04, 0.08, 0.95)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 3
+RichTextLabel/constants/outline_size = 2
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_bold")
+RichTextLabel/fonts/normal_font = ExtResource("1_24dno")
