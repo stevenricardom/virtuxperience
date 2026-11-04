@@ -1,0 +1,108 @@
+[gd_scene load_steps=19 format=3 uid="uid://comunicartelab001"]
+
+[ext_resource type="Script" path="res://scenes/biomes/comunicarte/ComunicArteLab.gd" id="1_lab"]
+[ext_resource type="AudioStream" path="res://assets/characters/ninja_adventure/audio/music/theme_lost_village.ogg" id="2_bgm"]
+[ext_resource type="TileSet" path="res://resources/tilesets/comunicarte_tileset.tres" id="3_tileset"]
+[ext_resource type="PackedScene" path="res://scenes/hub/objects/BiomePortal.tscn" id="4_portal"]
+[ext_resource type="Script" path="res://scenes/hub/objects/BiomePortal.gd" id="5_portal_gd"]
+[ext_resource type="PackedScene" path="res://scenes/hub/objects/GuardianNPC.tscn" id="6_npc"]
+[ext_resource type="Script" path="res://scenes/hub/objects/GuardianNPC.gd" id="7_npc_gd"]
+[ext_resource type="PackedScene" path="res://scenes/biomes/comunicarte/TypographicLectern.tscn" id="8_lectern"]
+[ext_resource type="Script" path="res://scenes/biomes/comunicarte/TypographicLectern.gd" id="9_lectern_gd"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="10_player"]
+[ext_resource type="Script" path="res://scenes/player/Player.gd" id="11_player_gd"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="12_hud"]
+[ext_resource type="Script" path="res://scenes/ui/HUD.gd" id="13_hud_gd"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogModal.tscn" id="14_dialog"]
+[ext_resource type="Script" path="res://scenes/ui/DialogModal.gd" id="15_dialog_gd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(640, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vert"]
+size = Vector2(16, 360)
+
+[node name="ComunicArteLab" type="Node2D"]
+script = ExtResource("1_lab")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bgm")
+autoplay = true
+
+[node name="Layer0_Floor" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_tileset")
+collision_enabled = false
+
+[node name="Layer1_Walls" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_tileset")
+
+[node name="Layer2_Details" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_tileset")
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ExitPortal" type="Area2D" parent="Entities" instance=ExtResource("4_portal")]
+position = Vector2(320, 320)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_portal_gd")
+biome_id = "hub"
+biome_name = "Campus Nexus"
+biome_title = "Campus Nexus"
+accent_color = Color(1, 0.165, 0.522, 1)
+target_scene = "res://scenes/hub/CampusHub.tscn"
+
+[node name="LIRA9_NPC" type="Area2D" parent="Entities" instance=ExtResource("6_npc")]
+position = Vector2(256, 176)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("7_npc_gd")
+npc_id = "lira9"
+npc_name = "LIRA-9 (Barda del Verbo)"
+speaker_color = Color(1, 0.165, 0.522, 1)
+
+[node name="TypographicLectern" type="StaticBody2D" parent="Entities" instance=ExtResource("8_lectern")]
+y_sort_enabled = true
+position = Vector2(320, 160)
+collision_mask = 0
+script = ExtResource("9_lectern_gd")
+
+[node name="Player" type="CharacterBody2D" parent="Entities" instance=ExtResource("10_player")]
+y_sort_enabled = true
+position = Vector2(320, 240)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("11_player_gd")
+
+[node name="RoomBoundaries" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="TopWall" type="CollisionShape2D" parent="RoomBoundaries"]
+position = Vector2(320, 24)
+shape = SubResource("RectangleShape2D_top")
+
+[node name="BottomWall" type="CollisionShape2D" parent="RoomBoundaries"]
+position = Vector2(320, 356)
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="LeftWall" type="CollisionShape2D" parent="RoomBoundaries"]
+position = Vector2(8, 180)
+shape = SubResource("RectangleShape2D_vert")
+
+[node name="RightWall" type="CollisionShape2D" parent="RoomBoundaries"]
+position = Vector2(632, 180)
+shape = SubResource("RectangleShape2D_vert")
+
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("12_hud")]
+layer = 10
+script = ExtResource("13_hud_gd")
+
+[node name="DialogModal" type="CanvasLayer" parent="." instance=ExtResource("14_dialog")]
+process_mode = 3
+layer = 20
+visible = false
+script = ExtResource("15_dialog_gd")

@@ -1,0 +1,104 @@
+{
+  "biome_id": "comunicarte",
+  "biome_name": "La Gran Biblioteca y Taller Tipográfico",
+  "accent_color": "#FF2A85",
+  "guardian": {
+    "name": "LIRA-9 (Barda del Verbo)",
+    "learning_capsule": [
+      "¡Bienvenido a la Gran Biblioteca y Taller Tipográfico! Aquí custodiamos la memoria viva del lenguaje, la retórica y la comprensión crítica.",
+      "El dominio comunicativo no es memorizar reglas inertes: es entender cómo la raíz de una palabra transforma su significado (morfología), cómo las proposiciones se articulan para sostener una tesis sin fisuras (sintaxis y cohesión), y cómo evaluar críticamente la validez e intención de un discurso en pruebas Saber Pro.",
+      "Para restablecer la Tinta Primordial y rescatar el Fragmento Magenta del Nexo, deberás superar los 3 Códices del Lenguaje: el Anagrama Morfológico, la Frase Cohesiva y la Lectura Crítica Cronometrada."
+    ]
+  },
+  "reward": {
+    "fragment_id": "fragment_comunicarte",
+    "badge_id": "badge_barda_del_verbo",
+    "badge_name": "Barda del Verbo",
+    "completion_xp": 150,
+    "unlock_cosmetic": "bard_magenta"
+  },
+  "adaptive_parameters": {
+    "consecutive_failures_trigger": 3,
+    "eliminated_options_count": 2,
+    "free_hint_enabled": true
+  },
+  "challenges": [
+    {
+      "id": "com_anagram_01",
+      "type": "anagram_tiles",
+      "thought_axis": "Competencia Léxica, Etimología y Morfología",
+      "difficulty": 1,
+      "title": "Códice I: La Raíz de la Elocuencia",
+      "prompt": "Ordena las fichas tipográficas de imprenta para descubrir el arte clásico de la persuasión y la eficacia discursiva:",
+      "target_word": "RETORICA",
+      "scrambled_letters": ["O", "R", "E", "T", "I", "R", "C", "A"],
+      "hint": "Proviene del griego 'rhêtorikê'; es la disciplina transversal que estudia las técnicas del lenguaje persuasivo en oratoria y redacción.",
+      "hint_cost_xp": 10,
+      "xp_reward": 50,
+      "explanation_on_error": "La palabra buscada es 'RETÓRICA' (de 'rhetor', orador). La retórica es el cimiento de la comunicación académica eficaz y la construcción de argumentos sólidos."
+    },
+    {
+      "id": "com_sentence_02",
+      "type": "sentence_builder",
+      "thought_axis": "Cohesión, Coherencia y Sintaxis Argumentativa",
+      "difficulty": 2,
+      "title": "Códice II: El Engranaje de las Proposiciones",
+      "prompt": "Organiza los 4 fragmentos discursivos para estructurar un argumento riguroso con conectores lógicos de contraste y consecuencia:",
+      "fragments": [
+        {
+          "id": "A",
+          "text": "Muchos líderes asumen que comunicar consiste únicamente en emitir información técnica con elocuencia;"
+        },
+        {
+          "id": "B",
+          "text": "sin embargo, la verdadera eficacia comunicativa exige una escucha empática activa que descifre el contexto del receptor;"
+        },
+        {
+          "id": "C",
+          "text": "de este modo, se construyen consensos sostenibles basados en la comprensión mutua;"
+        },
+        {
+          "id": "D",
+          "text": "transformando así el diálogo en un catalizador de transformación comunitaria."
+        }
+      ],
+      "correct_sequence": ["A", "B", "C", "D"],
+      "hint": "Inicia identificando la premisa inicial (idea común), luego el conector adversativo ('sin embargo'), seguido del conector consecutivo ('de este modo') y el desenlace final.",
+      "hint_cost_xp": 10,
+      "xp_reward": 50,
+      "explanation_on_error": "El orden discursivo canónico parte de la premisa general (A), introduce la antítesis mediante el conector adversativo 'sin embargo' (B), establece la consecuencia lógica con 'de este modo' (C) y culmina con el impacto transformador (D)."
+    },
+    {
+      "id": "com_saberpro_03",
+      "type": "saber_pro_reading",
+      "thought_axis": "Lectura Crítica y Valoración Argumentativa (Saber Pro)",
+      "difficulty": 3,
+      "time_limit_seconds": 60,
+      "title": "Códice III: Diagnóstico de Lectura Crítica Saber Pro",
+      "prompt": "Lee el siguiente fragmento ensayístico y responde antes de que el cronómetro de 60 segundos expire:\n\n«En la era digital, la proliferación de algoritmos de optimización de clics ha reemplazado la deliberación sosegada por la inmediatez visceral. Al alimentar únicamente sesgos preexistentes, estos sistemas no democratizan el conocimiento, sino que atomizan la esfera pública en cámaras de eco impenetrables.»\n\n¿Cuál es la tesis central defendida por el autor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Los entornos digitales facilitan la deliberación democrática gracias a la inmediatez."
+        },
+        {
+          "id": "b",
+          "label": "Los algoritmos de clics fragmentan el espacio público al reforzar sesgos en lugar de democratizar."
+        },
+        {
+          "id": "c",
+          "label": "El conocimiento científico solo puede difundirse mediante medios análogos tradicionales."
+        },
+        {
+          "id": "d",
+          "label": "Las cámaras de eco son herramientas pedagógicas diseñadas para proteger la privacidad."
+        }
+      ],
+      "correct_option": "b",
+      "hint": "Presta atención a la relación de contraste entre lo que los sistemas aparentan hacer ('no democratizan') y su efecto real ('atomizan la esfera pública').",
+      "hint_cost_xp": 10,
+      "xp_reward": 60,
+      "explanation_on_error": "La tesis central es que la lógica de los algoritmos genera polarización y cámaras de eco (opción B). La opción A contradice el texto; la C y la D afirman premisas que el autor nunca formula."
+    }
+  ]
+}

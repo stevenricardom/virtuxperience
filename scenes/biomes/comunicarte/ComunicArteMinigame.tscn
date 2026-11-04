@@ -1,0 +1,728 @@
+[gd_scene load_steps=5 format=3 uid="uid://comunicarteminigame001"]
+
+[ext_resource type="Theme" path="res://resources/themes/main_pixel_theme.tres" id="1_theme"]
+[ext_resource type="Script" path="res://scenes/biomes/comunicarte/ComunicArteMinigame.gd" id="2_script"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+
+[node name="ComunicArteMinigame" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+script = ExtResource("2_script")
+
+[node name="BackgroundOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06, 0.03, 0.1, 0.96)
+
+[node name="MainPanel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InteriorBackdrop" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.05, 0.13, 0.98)
+
+[node name="HeaderDivider" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 31.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(1, 0.165, 0.522, 0.4)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+modulate = Color(1, 0.165, 0.522, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "LA GRAN BIBLIOTECA: COMUNICARTE"
+
+[node name="Spacer1" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NodeIndicatorLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "CÁPSULA LIRA-9"
+
+[node name="TimerLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+visible = false
+modulate = Color(1, 0.165, 0.522, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "TIEMPO: 60s"
+
+[node name="ReturnButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/Header"]
+custom_minimum_size = Vector2(40, 18)
+layout_mode = 2
+text = " SALIR "
+
+[node name="CapsulePanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="CapsuleTitle" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "TRANSMISIÓN PEDAGÓGICA — LIRA-9 (Barda del Verbo)"
+
+[node name="CapsuleText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="CapsuleFooter" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+text = "← Anterior"
+
+[node name="PageLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Página 1 de 3"
+
+[node name="Spacer2" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter"]
+layout_mode = 2
+text = "Siguiente →"
+
+[node name="ChallengeView" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="ThoughtAxisLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+modulate = Color(0.7, 0.7, 0.8, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Eje: ..."
+
+[node name="PromptText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+custom_minimum_size = Vector2(588, 36)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="AnagramContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AnagramPromptLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Ranuras de Colocación (Atril):"
+horizontal_alignment = 1
+
+[node name="SlotsHBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Slot0" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot1" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot3" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot4" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot5" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot6" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot7" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/SlotsHBox/Slot7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BankLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "Banco de Tipos Móviles:"
+horizontal_alignment = 1
+
+[node name="BankHBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Bank0" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank1" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank2" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank3" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank4" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank5" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank6" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Bank7" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="TileIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/BankHBox/Bank7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnagramActionRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VerifyAnagramBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/AnagramActionRow"]
+custom_minimum_size = Vector2(130, 22)
+layout_mode = 2
+text = " Verificar Códice "
+
+[node name="ResetAnagramBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/AnagramContainer/AnagramActionRow"]
+custom_minimum_size = Vector2(120, 22)
+layout_mode = 2
+text = " Reiniciar Fichas "
+
+[node name="SentenceBuilderContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CardsVBox" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Card0" type="PanelContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox"]
+custom_minimum_size = Vector2(588, 30)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="HBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TokenIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0/Margin/HBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FragmentLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="MoveUpButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▲"
+
+[node name="MoveDownButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card0/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▼"
+
+[node name="Card1" type="PanelContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox"]
+custom_minimum_size = Vector2(588, 30)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="HBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TokenIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1/Margin/HBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FragmentLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="MoveUpButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▲"
+
+[node name="MoveDownButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card1/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▼"
+
+[node name="Card2" type="PanelContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox"]
+custom_minimum_size = Vector2(588, 30)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="HBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TokenIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2/Margin/HBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FragmentLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="MoveUpButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▲"
+
+[node name="MoveDownButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card2/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▼"
+
+[node name="Card3" type="PanelContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox"]
+custom_minimum_size = Vector2(588, 30)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="HBox" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TokenIcon" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3/Margin/HBox"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FragmentLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="MoveUpButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▲"
+
+[node name="MoveDownButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/CardsVBox/Card3/Margin/HBox"]
+custom_minimum_size = Vector2(22, 20)
+layout_mode = 2
+text = "▼"
+
+[node name="SentenceActionRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ValidateSentenceBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/SentenceActionRow"]
+custom_minimum_size = Vector2(130, 22)
+layout_mode = 2
+text = " Validar Sintaxis "
+
+[node name="ResetSentenceBtn" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/SentenceBuilderContainer/SentenceActionRow"]
+custom_minimum_size = Vector2(130, 22)
+layout_mode = 2
+text = " Restablecer Orden "
+
+[node name="OptionsContainer" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="OptionA" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionB" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionC" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionD" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer"]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+
+[node name="FeedbackBar" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="FeedbackLabel" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar"]
+custom_minimum_size = Vector2(588, 28)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar"]
+layout_mode = 2
+
+[node name="HintButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+custom_minimum_size = Vector2(90, 20)
+layout_mode = 2
+text = "Pista (-10 XP)"
+
+[node name="AdaptiveNoticeLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+visible = false
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "¡Asistencia adaptativa activa!"
+
+[node name="Spacer3" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow"]
+visible = false
+custom_minimum_size = Vector2(140, 20)
+layout_mode = 2
+text = "Siguiente Códice →"
+
+[node name="CompletionPanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CompletionDetails" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_font")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="ReturnToLabButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel"]
+custom_minimum_size = Vector2(200, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Regresar a la Gran Biblioteca "
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
