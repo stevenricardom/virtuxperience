@@ -1,0 +1,101 @@
+{
+  "catalog_version": 4,
+  "cosmetics": [
+    {
+      "id": "ninja_blue",
+      "name": "Ninja Azul (Novato)",
+      "description": "Atuendo estándar de los estudiantes al ingresar al Campus Nexus.",
+      "unlocked_by_default": true,
+      "unlock_condition": "default",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/ninja_blue/sprite.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#4A90E2",
+      "modulate_tint": "#FFFFFF"
+    },
+    {
+      "id": "samurai_blue",
+      "name": "Samurái Cuántico",
+      "description": "Armadura de honor forjada en los procesadores del Observatorio NeuroMath.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_neuromath",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_blue/sprite.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#00E5FF",
+      "modulate_tint": "#FFFFFF"
+    },
+    {
+      "id": "bard_magenta",
+      "name": "Barda del Verbo",
+      "description": "Toga de erudito imbuida de la tinta primordial de la Gran Biblioteca.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_comunicarte",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_green/samurai_green.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#FF2A85",
+      "modulate_tint": "#FF94C2"
+    },
+    {
+      "id": "innovator_orange",
+      "name": "Ingeniero de Prototipos",
+      "description": "Traje térmico industrial calibrado en las líneas de ensamblaje de ActivaTuIdea.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_activatuidea",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/ninja_blue/sprite.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#FF8C00",
+      "modulate_tint": "#FFB74D"
+    },
+    {
+      "id": "strategist_steel",
+      "name": "Estratega Ejecutivo",
+      "description": "Indumentaria táctica de alto mando del Centro Ejecutivo Ágil Gerencia+.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_gerencia",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_blue/sprite.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#4682B4",
+      "modulate_tint": "#90CAF9"
+    },
+    {
+      "id": "samurai_green",
+      "name": "Guardián de la Tierra",
+      "description": "Armadura honorífica sintonizada con el bioma LatidoSocial.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_misionales",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_green/samurai_green.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#4CAF50",
+      "modulate_tint": "#FFFFFF"
+    },
+    {
+      "id": "empath_green",
+      "name": "Guardián Empático",
+      "description": "Indumentaria bio-empática sintonizada con el pulso vital de la Aldea del Bienestar.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_latidosocial",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_green/samurai_green.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#4CAF50",
+      "modulate_tint": "#81C784"
+    },
+    {
+      "id": "civic_violet",
+      "name": "Tribuno Democrático",
+      "description": "Toga cívica laureada del Ágora Democrática para defensores de los derechos constitucionales.",
+      "unlocked_by_default": false,
+      "unlock_condition": "fragment_voxcivitas",
+      "texture_path": "res://assets/characters/ninja_adventure/content/character/samurai_blue/sprite.png",
+      "hframes": 4,
+      "vframes": 7,
+      "accent_color": "#9C27B0",
+      "modulate_tint": "#BA68C8"
+    }
+  ]
+}

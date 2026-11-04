@@ -14,6 +14,11 @@ config/name="virtuxperience"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://autoload/GameState.gd"
+SceneManager="*res://autoload/SceneManager.gd"
+
 [display]
 
 window/size/viewport_width=640
