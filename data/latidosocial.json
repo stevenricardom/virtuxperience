@@ -1,0 +1,198 @@
+{
+  "biome_id": "latidosocial",
+  "biome_name": "Aldea del Bienestar & Plaza Comunitaria",
+  "accent_color": "#4CAF50",
+  "guardian": {
+    "name": "GAIA-4 (Guardián del Bienestar Comunitario)",
+    "learning_capsule": [
+      "¡Te damos la bienvenida a la Aldea del Bienestar! Aquí la empatía activa, la salud mental comunitaria y el tejido social son los pilares fundamentales para el florecimiento humano integral.",
+      "El bienestar de una comunidad no surge de acciones aisladas o asistencialistas, sino de la capacidad de escuchar activamente a los ciudadanos, reconocer sus estados emocionales y canalizarlos oportunamente hacia las estaciones de recursos idóneas.",
+      "Para revitalizar el Pozo Central de la Empatía y rescatar el Fragmento Esmeralda del Nexo, atenderás a los ciudadanos en la Plaza Comunitaria mediante micro-decisiones éticas [1] o [2] en tiempo real y resolverás el desafío Saber Pro de Ética y Responsabilidad Social."
+    ]
+  },
+  "reward": {
+    "fragment_id": "fragment_latidosocial",
+    "badge_id": "badge_tejedor_comunitario",
+    "badge_name": "Tejedor de Bienestar",
+    "completion_xp": 150,
+    "unlock_cosmetic": "empath_green"
+  },
+  "adaptive_parameters": {
+    "consecutive_failures_trigger": 2,
+    "eliminated_options_count": 2,
+    "free_hint_enabled": true,
+    "soft_reset_on_depletion": true,
+    "time_extension_seconds": 30
+  },
+  "challenges": [
+    {
+      "id": "ls_action_01",
+      "type": "empathy_plaza_action",
+      "thought_axis": "Compromiso Ético y Responsabilidad Social",
+      "difficulty": 1,
+      "title": "Nodo I: Dinámica en Tiempo Real — Plaza de la Empatía",
+      "prompt": "Acércate a los ciudadanos en la plaza, diagnostica su estado emocional y selecciona la mejor respuesta ética [1] o [2] para canalizarlos a las estaciones de bienestar comunitarias:",
+      "xp_reward": 90,
+      "hint": "Observa el indicador de bienestar y la emoción flotante. Las respuestas basadas en escucha activa y contención inmediata restauran el bienestar con mayor eficacia.",
+      "hint_cost_xp": 10,
+      "passing_score": 100,
+      "target_citizens_helped": 4,
+      "initial_wellbeing": 100,
+      "wellbeing_decay_rate": 2.0,
+      "stations": [
+        {
+          "id": "station_health",
+          "name": "Centro de Salud Emocional",
+          "position": [160, 100],
+          "specialty": "Atención psicosocial, contención de crisis y primeros auxilios emocionales",
+          "color": "#81C784"
+        },
+        {
+          "id": "station_food",
+          "name": "Comedor Comunitario Solidario",
+          "position": [480, 100],
+          "specialty": "Seguridad alimentaria, nutrición comunitaria y apoyo a familias en vulnerabilidad",
+          "color": "#FFB74D"
+        },
+        {
+          "id": "station_network",
+          "name": "Red de Escucha y Apoyo Mutuo",
+          "position": [320, 260],
+          "specialty": "Mediación vecinal, acompañamiento a personas mayores y diálogo intergeneracional",
+          "color": "#64B5F6"
+        }
+      ],
+      "citizens": [
+        {
+          "id": "cit_mateo",
+          "name": "Mateo (Estudiante Estresado)",
+          "emotion": "ansiedad",
+          "sprite_type": "student",
+          "dialogue": "Siento que la presión de los exámenes y los problemas familiares me superan. No puedo dormir ni concentrarme...",
+          "options": [
+            {
+              "id": "opt_1",
+              "text": "[1] Escucha activa: 'Es comprensible sentirse abrumado. Ven al Centro de Salud Emocional para recibir apoyo profesional.'",
+              "correct": true,
+              "wellbeing_delta": 30,
+              "target_station": "station_health",
+              "feedback": "¡Excelente empatía! Validaste sus emociones y lo canalizaste al servicio psicosocial idóneo."
+            },
+            {
+              "id": "opt_2",
+              "text": "[2] Invalidación: 'A todos nos pasa; no te quejes tanto y concéntrate en estudiar más duro.'",
+              "correct": false,
+              "wellbeing_delta": -25,
+              "feedback": "La invalidación emocional profundiza el aislamiento y la angustia del estudiante."
+            }
+          ]
+        },
+        {
+          "id": "cit_elena",
+          "name": "Doña Elena (Madre Comunitaria)",
+          "emotion": "preocupacion",
+          "sprite_type": "elder",
+          "dialogue": "El comedor del barrio se quedó sin provisiones y varias familias con niños pequeños no tienen alimentos hoy...",
+          "options": [
+            {
+              "id": "opt_1",
+              "text": "[1] Desinterés: 'Cada familia debe solucionar sus propios gastos; la comunidad no puede sostener a todos.'",
+              "correct": false,
+              "wellbeing_delta": -25,
+              "feedback": "La indiferencia fragmenta el tejido comunitario y agrava la vulnerabilidad nutricional."
+            },
+            {
+              "id": "opt_2",
+              "text": "[2] Solidaridad comunitaria: 'Coordinemos de inmediato con el Comedor Solidario para distribuir raciones de contingencia.'",
+              "correct": true,
+              "wellbeing_delta": 30,
+              "target_station": "station_food",
+              "feedback": "¡Acción comunitaria ejemplar! Activaste la red de seguridad alimentaria para proteger a las familias."
+            }
+          ]
+        },
+        {
+          "id": "cit_carlos",
+          "name": "Don Carlos (Adulto Mayor Solitario)",
+          "emotion": "soledad",
+          "sprite_type": "elder_male",
+          "dialogue": "Paso semanas enteras en mi casa sin conversar con nadie. A veces siento que a nadie le importa si estoy aquí...",
+          "options": [
+            {
+              "id": "opt_1",
+              "text": "[1] Vinculación afectiva: 'Su voz y memoria son valiosas para nosotros. Acompáñenos a la Red de Apoyo Mutuo para integrarse al círculo de diálogo.'",
+              "correct": true,
+              "wellbeing_delta": 30,
+              "target_station": "station_network",
+              "feedback": "¡Dignidad restaurada! Reconociste el valor del adulto mayor y lo integraste al tejido comunitario."
+            },
+            {
+              "id": "opt_2",
+              "text": "[2] Evasión: 'Compre un radio o vea la televisión para no aburrirse en las tardes.'",
+              "correct": false,
+              "wellbeing_delta": -25,
+              "feedback": "El aislamiento involuntario no se supera con consumo solitario, sino con relaciones humanas cálidas."
+            }
+          ]
+        },
+        {
+          "id": "cit_lucia",
+          "name": "Lucía (Líder Juvenil)",
+          "emotion": "frustracion",
+          "sprite_type": "youth",
+          "dialogue": "Dos colectivos barriales están discutiendo agresivamente por el uso del polideportivo y tememos que termine en violencia...",
+          "options": [
+            {
+              "id": "opt_1",
+              "text": "[1] Mediación pacífica: 'Instalemos una mesa de concertación en la Red de Apoyo Mutuo para pactar un cronograma compartido.'",
+              "correct": true,
+              "wellbeing_delta": 30,
+              "target_station": "station_network",
+              "feedback": "¡Resolución pacífica de conflictos! Estableciste mediación dialógica antes de la escalada violenta."
+            },
+            {
+              "id": "opt_2",
+              "text": "[2] Solución punitiva: 'Clausuremos la cancha con candado para que ningún grupo pueda ingresar jamás.'",
+              "correct": false,
+              "wellbeing_delta": -25,
+              "feedback": "La represión autoritaria suprime los espacios públicos en vez de educar en convivencia ciudadana."
+            }
+          ]
+        }
+      ],
+      "explanation_on_error": "Si el bienestar ciudadano llega a cero, la ronda se reinicia suavemente. Tras 2 fallos consecutivos se activa la asistencia adaptativa con menor tasa de drenaje y mayor recarga por acierto."
+    },
+    {
+      "id": "ls_saberpro_02",
+      "type": "saber_pro_ethics",
+      "thought_axis": "Compromiso Ético y Responsabilidad Social",
+      "difficulty": 2,
+      "time_limit_seconds": 60,
+      "title": "Nodo II: Evaluación Saber Pro — Ética del Cuidado y Responsabilidad Social",
+      "prompt": "En una comunidad ribereña, una compañía agroindustrial ofrece financiar una moderna aula digital y otorgar becas de estudio a la escuela comunitaria a cambio de que la asamblea vecinal otorgue su consentimiento para el vertimiento de aguas residuales en el río local, principal fuente de pesca y agua para consumo del poblado.\n\nDesde los fundamentos de la ética del cuidado y la responsabilidad social comunitaria, ¿cuál es la determinación ética y constitucionalmente correcta que debe tomar la asamblea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aceptar los beneficios educativos inmediatos, asumiendo que los costos ecológicos podrán ser corregidos por tecnologías futuras."
+        },
+        {
+          "id": "b",
+          "label": "Rechazar la condicionalidad lesiva y salvaguardar la fuente hídrica, pues el derecho humano al agua potable y la salud colectiva son inalienables y no transables."
+        },
+        {
+          "id": "c",
+          "label": "Aprobar el vertimiento a cambio de que la empresa aumente la cantidad de becas y asuma la compra de agua embotellada para los líderes."
+        },
+        {
+          "id": "d",
+          "label": "Delegar la votación a una entidad foránea para evitar confrontaciones directas entre los miembros de la comunidad."
+        }
+      ],
+      "correct_option": "b",
+      "hint": "La ética de la responsabilidad social establece que los derechos humanos esenciales (salud, agua limpia, integridad ecológica) prevalecen sobre cualquier donación o beneficio material privado.",
+      "hint_cost_xp": 10,
+      "xp_reward": 60,
+      "explanation_on_error": "La opción correcta es la B. La responsabilidad social comunitaria y la ética del cuidado postulan que los bienes comunes esenciales y la salud pública constituyen condiciones de posibilidad innegociables; subordinarlos a dádivas o contraprestaciones económicas vulnera la dignidad colectiva."
+    }
+  ]
+}

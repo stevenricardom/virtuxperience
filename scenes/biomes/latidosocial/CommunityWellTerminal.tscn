@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://communitywellterminal001"]
+
+[ext_resource type="Script" path="res://scenes/biomes/latidosocial/CommunityWellTerminal.gd" id="1_well"]
+[ext_resource type="Texture2D" path="res://assets/misionales/tiny_town/Tiles/tile_0104.png" id="2_spr"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+[ext_resource type="Texture2D" path="res://assets/misionales/tiny_town/Tiles/tile_0092.png" id="5_roof"]
+[ext_resource type="Texture2D" path="res://assets/misionales/tiny_town/Tiles/tile_0131.png" id="6_bucket"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_col"]
+size = Vector2(32, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_int"]
+radius = 44.0
+
+[node name="CommunityWellTerminal" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_well")
+target_scene = "res://scenes/biomes/latidosocial/LatidoSocialMinigame.tscn"
+
+[node name="CoreGlow" type="Polygon2D" parent="."]
+color = Color(0.298039, 0.686275, 0.313725, 0.42)
+polygon = PackedVector2Array(-36, 18, -24, 26, 0, 30, 24, 26, 36, 18, 40, 2, 28, -14, 0, -20, -28, -14, -40, 2)
+
+[node name="WellBaseStone" type="Polygon2D" parent="."]
+color = Color(0.24, 0.28, 0.25, 0.92)
+polygon = PackedVector2Array(-30, 14, -20, 21, 0, 23, 20, 21, 30, 14, 32, 2, 22, -9, 0, -12, -22, -9, -32, 2)
+
+[node name="WellInnerRim" type="Polygon2D" parent="."]
+color = Color(0.38, 0.44, 0.39, 0.95)
+polygon = PackedVector2Array(-24, 11, -16, 17, 0, 19, 16, 17, 24, 11, 26, 2, 16, -6, 0, -9, -16, -6, -26, 2)
+
+[node name="WaterBasinGlow" type="Polygon2D" parent="."]
+position = Vector2(0, 4)
+color = Color(0.18, 0.88, 0.68, 0.55)
+polygon = PackedVector2Array(-16, 6, -10, 11, 0, 12, 10, 11, 16, 6, 16, -2, 10, -6, 0, -7, -10, -6, -16, -2)
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_spr")
+
+[node name="WellRoofSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_roof")
+
+[node name="LeftWaterBucket" type="Sprite2D" parent="."]
+position = Vector2(-20, 8)
+texture = ExtResource("6_bucket")
+
+[node name="RightWaterBucket" type="Sprite2D" parent="."]
+position = Vector2(20, 8)
+flip_h = true
+texture = ExtResource("6_bucket")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_col")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_int")
+
+[node name="PromptBadge" type="NinePatchRect" parent="InteractionArea"]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -44.0
+offset_right = 8.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PromptLabel" type="Label" parent="InteractionArea/PromptBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
