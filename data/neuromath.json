@@ -1,0 +1,138 @@
+{
+  "biome_id": "neuromath",
+  "biome_name": "Observatorio Cuántico NeuroMath",
+  "accent_color": "#00E5FF",
+  "guardian": {
+    "name": "AXION-7 (Guardián Lógico)",
+    "learning_capsule": [
+      "¡Bienvenido al Observatorio Cuántico! El núcleo del Nexo aquí se alimenta de dos fuerzas: la Lógica Proposicional (compuertas AND, OR, XOR) y el Razonamiento Cuantitativo.",
+      "Recuerda: una compuerta AND solo emite energía (1) si TODAS sus entradas son 1. Una compuerta OR emite 1 si AL MENOS UNA entrada es 1. Y en ecuaciones de caudal, la entrada total siempre debe igualar la salida.",
+      "Supera los 3 nodos de estabilización para recuperar el Fragmento Cian del Nexo. Si necesitas una pista, puedes invertir 10 XP."
+    ]
+  },
+  "reward": {
+    "fragment_id": "fragment_neuromath",
+    "badge_id": "badge_arquitecto_cuantico",
+    "badge_name": "Arquitecto Cuántico",
+    "completion_xp": 150,
+    "unlock_cosmetic": "samurai_blue"
+  },
+  "adaptive_parameters": {
+    "consecutive_failures_trigger": 3,
+    "eliminated_options_count": 2,
+    "free_hint_enabled": true
+  },
+  "challenges": [
+    {
+      "id": "nm_gate_01",
+      "type": "logic_circuit",
+      "thought_axis": "Pensamiento Variacional y Sistemas Algebraicos",
+      "difficulty": 1,
+      "title": "Nodo 1: Compuerta de Sincronía",
+      "prompt": "El reactor principal requiere señal de salida S = 1. La compuerta final es AND y recibe la Entrada A = 1 y la salida de una compuerta OR (Entradas B y C, donde B = 0). ¿Qué valor debe tomar C y qué operación se cumple?",
+      "circuit_schema": {
+        "inputs": {
+          "A": 1,
+          "B": 0,
+          "C": "?"
+        },
+        "gate_1": {
+          "type": "OR",
+          "in": ["B", "C"],
+          "out": "P"
+        },
+        "gate_2": {
+          "type": "AND",
+          "in": ["A", "P"],
+          "target_out": 1
+        }
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": "C = 1, porque (0 OR 1) = 1 y (1 AND 1) = 1"
+        },
+        {
+          "id": "b",
+          "label": "C = 0, porque (0 OR 0) = 1 en lógica binaria"
+        },
+        {
+          "id": "c",
+          "label": "C = 1, porque (0 AND 1) = 1 en la primera compuerta"
+        },
+        {
+          "id": "d",
+          "label": "No existe valor de C que active el reactor"
+        }
+      ],
+      "correct_option": "a",
+      "xp_reward": 50,
+      "hint_cost_xp": 10,
+      "hint": "Evalúa primero la compuerta OR: necesitas que su salida P sea 1 para que la compuerta AND final reciba (1, 1).",
+      "explanation_on_error": "En una compuerta AND ambas entradas deben valer 1. Como A = 1, la salida de OR(B, C) debe ser 1; dado que B = 0, obligatoriamente C = 1."
+    },
+    {
+      "id": "nm_calc_02",
+      "type": "equation_balance",
+      "thought_axis": "Pensamiento Numérico y Variacional",
+      "difficulty": 2,
+      "title": "Nodo 2: Equilibrio de Flujo Energético",
+      "prompt": "Un circuito divide una corriente de 120 Teravatios en tres ramas proporcionales a la relación 2 : 3 : 5. ¿Cuántos Teravatios circulan por la rama de mayor capacidad?",
+      "options": [
+        {
+          "id": "a",
+          "label": "36 TW"
+        },
+        {
+          "id": "b",
+          "label": "48 TW"
+        },
+        {
+          "id": "c",
+          "label": "60 TW"
+        },
+        {
+          "id": "d",
+          "label": "72 TW"
+        }
+      ],
+      "correct_option": "c",
+      "xp_reward": 50,
+      "hint_cost_xp": 10,
+      "hint": "Suma las partes de la proporción (2 + 3 + 5 = 10 partes iguales) y calcula cuánto vale cada parte sobre 120 TW.",
+      "explanation_on_error": "La suma de razones es 2 + 3 + 5 = 10. Cada unidad equivale a 120 / 10 = 12 TW. La rama mayor (5 partes) recibe 5 × 12 = 60 TW."
+    },
+    {
+      "id": "nm_saberpro_03",
+      "type": "saber_pro_timed",
+      "thought_axis": "Pensamiento Aleatorio y Razonamiento Cuantitativo (Saber Pro)",
+      "difficulty": 2,
+      "time_limit_seconds": 60,
+      "title": "Nodo 3: Diagnóstico Estadístico del Nexo",
+      "prompt": "En 5 pruebas de latencia del servidor se registraron: 12 ms, 15 ms, 15 ms, 18 ms y 20 ms. Si se añade una sexta medición de 16 ms, ¿qué ocurre con la media aritmética?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aumenta en 1 ms respecto a la media original"
+        },
+        {
+          "id": "b",
+          "label": "Permanece exactamente en 16 ms"
+        },
+        {
+          "id": "c",
+          "label": "Disminuye a 15.5 ms"
+        },
+        {
+          "id": "d",
+          "label": "Se iguala a la moda (15 ms)"
+        }
+      ],
+      "correct_option": "b",
+      "xp_reward": 60,
+      "hint_cost_xp": 10,
+      "hint": "Calcula primero el promedio de los 5 datos iniciales: (12 + 15 + 15 + 18 + 20) / 5.",
+      "explanation_on_error": "La suma inicial es 80 ms y su media es 80 / 5 = 16 ms. Al agregar un dato igual a la media (16 ms), la nueva media (96 / 6 = 16 ms) no cambia."
+    }
+  ]
+}

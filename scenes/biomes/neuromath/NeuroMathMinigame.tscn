@@ -1,0 +1,277 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://resources/themes/main_pixel_theme.tres" id="1_1mtr4"]
+[ext_resource type="Script" path="res://scenes/biomes/neuromath/NeuroMathMinigame.gd" id="2_xkajn"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_ubcec"]
+[ext_resource type="Texture2D" path="res://assets/neuromath/scifi_rts/PNG/Default size/Structure/scifiStructure_06.png" id="4_67lwy"]
+[ext_resource type="Texture2D" path="res://assets/neuromath/scifi_rts/PNG/Default size/Tile/scifiTile_04.png" id="5_1a46a"]
+[ext_resource type="Texture2D" path="res://assets/neuromath/scifi_rts/PNG/Default size/Structure/scifiStructure_10.png" id="6_4l7jh"]
+
+[node name="NeuroMathMinigame" type="Control" unique_id=690459746]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_1mtr4")
+script = ExtResource("2_xkajn")
+
+[node name="BackgroundOverlay" type="ColorRect" parent="." unique_id=972509275]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.06, 0.1, 0.96)
+
+[node name="MainPanel" type="NinePatchRect" parent="." unique_id=725735590]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 624.0
+offset_bottom = 348.0
+texture = ExtResource("3_ubcec")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InteriorBackdrop" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.08, 0.14, 0.98)
+
+[node name="HeaderDivider" type="ColorRect" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 31.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0, 0.898039, 1, 0.35)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel" unique_id=970431895]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/MarginContainer" unique_id=1075412793]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1292655713]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header" unique_id=258448907]
+modulate = Color(0, 0.8980392, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "OBSERVATORIO CUÁNTICO: NEUROMATH"
+
+[node name="Spacer1" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/Header" unique_id=332100743]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NodeIndicatorLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header" unique_id=2090887003]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "CÁPSULA AXION-7"
+
+[node name="TimerLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/Header" unique_id=745679886]
+visible = false
+modulate = Color(0, 0.8980392, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "TIEMPO: 60s"
+
+[node name="ReturnButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/Header" unique_id=1887211259]
+custom_minimum_size = Vector2(40, 18)
+layout_mode = 2
+text = " SALIR "
+
+[node name="CapsulePanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1800899184]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="CapsuleTitle" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel" unique_id=893257768]
+modulate = Color(1, 0.84313726, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "TRANSMISIÓN PEDAGÓGICA — AXION-7 (Guardián Lógico)"
+
+[node name="CapsuleText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel" unique_id=386729669]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="CapsuleFooter" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel" unique_id=1328173477]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter" unique_id=996000437]
+layout_mode = 2
+text = "← Anterior"
+
+[node name="PageLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter" unique_id=1678539328]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Página 1 de 3"
+
+[node name="Spacer2" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter" unique_id=1461833295]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CapsulePanel/CapsuleFooter" unique_id=2070776762]
+layout_mode = 2
+text = "Siguiente →"
+
+[node name="ChallengeView" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=1924079619]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="ThoughtAxisLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView" unique_id=2077121797]
+modulate = Color(0.627451, 0.6666667, 0.72156864, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Eje: Pensamiento Variacional y Sistemas Algebraicos"
+
+[node name="CircuitVisualizer" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView" unique_id=480038053]
+custom_minimum_size = Vector2(588, 68)
+layout_mode = 2
+
+[node name="VisBG" type="ColorRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/CircuitVisualizer" unique_id=326113868]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.1, 0.16, 0.9)
+
+[node name="Structure1" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/CircuitVisualizer" unique_id=528086360]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+texture = ExtResource("4_67lwy")
+
+[node name="Track" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/CircuitVisualizer" unique_id=703417084]
+modulate = Color(0.12, 0.28, 0.45, 0.18)
+layout_mode = 0
+offset_left = 260.0
+offset_top = 2.0
+offset_right = 324.0
+offset_bottom = 66.0
+texture = ExtResource("5_1a46a")
+
+[node name="Structure2" type="TextureRect" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/CircuitVisualizer" unique_id=1302438285]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 2.0
+offset_right = 576.0
+offset_bottom = 66.0
+texture = ExtResource("6_4l7jh")
+
+[node name="PromptText" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView" unique_id=1850934385]
+custom_minimum_size = Vector2(588, 48)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="OptionsContainer" type="GridContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView" unique_id=1401859506]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="OptionA" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer" unique_id=666204469]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionB" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer" unique_id=641335648]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionC" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer" unique_id=292217501]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="OptionD" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/OptionsContainer" unique_id=86159287]
+custom_minimum_size = Vector2(290, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="FeedbackBar" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView" unique_id=1450952011]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="FeedbackLabel" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar" unique_id=1208945024]
+custom_minimum_size = Vector2(588, 28)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar" unique_id=1625792720]
+layout_mode = 2
+
+[node name="HintButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow" unique_id=98535774]
+custom_minimum_size = Vector2(90, 20)
+layout_mode = 2
+text = "Pista (-10 XP)"
+
+[node name="AdaptiveNoticeLabel" type="Label" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow" unique_id=1997617710]
+visible = false
+modulate = Color(1, 0.84313726, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "¡Asistencia adaptativa activa!"
+
+[node name="Spacer3" type="Control" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow" unique_id=441928435]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/ChallengeView/FeedbackBar/ButtonsRow" unique_id=1235966808]
+visible = false
+custom_minimum_size = Vector2(130, 20)
+layout_mode = 2
+text = "Siguiente Nodo →"
+
+[node name="CompletionPanel" type="VBoxContainer" parent="MainPanel/MarginContainer/VBoxContainer" unique_id=597409066]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CompletionDetails" type="RichTextLabel" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel" unique_id=474523566]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="ReturnToLabButton" type="Button" parent="MainPanel/MarginContainer/VBoxContainer/CompletionPanel" unique_id=65252612]
+custom_minimum_size = Vector2(180, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Regresar al Laboratorio Cuántico "
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1514937487]
