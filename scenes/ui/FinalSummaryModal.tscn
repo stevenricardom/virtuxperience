@@ -1,0 +1,238 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7m0x8summary"]
+
+[ext_resource type="Script" path="res://scenes/ui/FinalSummaryModal.gd" id="1_summ"]
+[ext_resource type="Theme" path="res://resources/themes/main_pixel_theme.tres" id="2_thme"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/nine_path_7.png" id="3_np7"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal1.png" id="4_med1"]
+
+[node name="FinalSummaryModal" type="CanvasLayer"]
+process_mode = 3
+layer = 25
+visible = false
+script = ExtResource("1_summ")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.75)
+
+[node name="ModalBox" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(540, 320)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -160.0
+offset_right = 270.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme = ExtResource("2_thme")
+texture = ExtResource("3_np7")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Backdrop" type="ColorRect" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.08, 0.14, 0.98)
+
+[node name="MarginContainer" type="MarginContainer" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="ModalBox/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Header" type="HBoxContainer" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="TitleIcon" type="TextureRect" parent="ModalBox/MarginContainer/VBox/Header"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_med1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="ModalBox/MarginContainer/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "GRAN LOGIA DEL CONOCIMIENTO — VIRTUXPERIENCE 2D"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ModalBox/MarginContainer/VBox/Header"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "✕"
+
+[node name="HeaderDivider" type="ColorRect" parent="ModalBox/MarginContainer/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.831373, 0.686275, 0.215686, 0.4)
+
+[node name="PreviewBanner" type="PanelContainer" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BannerLabel" type="Label" parent="ModalBox/MarginContainer/VBox/PreviewBanner"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.701961, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "MODO VISTA PREVIA: Completa los 6 biomas para emitir tu certificación de honor oficial."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MetricsGrid" type="HBoxContainer" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="CardLevel" type="PanelContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardLevel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Val" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardLevel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.898039, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "NIVEL 1"
+horizontal_alignment = 1
+
+[node name="Lbl" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardLevel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.580392, 0.619608, 1)
+theme_override_font_sizes/font_size = 6
+text = "RANGO ACADÉMICO"
+horizontal_alignment = 1
+
+[node name="CardXP" type="PanelContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardXP"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Val" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardXP/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.898039, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "0 XP"
+horizontal_alignment = 1
+
+[node name="Lbl" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardXP/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.580392, 0.619608, 1)
+theme_override_font_sizes/font_size = 6
+text = "EXPERIENCIA TOTAL"
+horizontal_alignment = 1
+
+[node name="CardFragments" type="PanelContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardFragments"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Val" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardFragments/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "0 / 6"
+horizontal_alignment = 1
+
+[node name="Lbl" type="Label" parent="ModalBox/MarginContainer/VBox/MetricsGrid/CardFragments/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.545098, 0.580392, 0.619608, 1)
+theme_override_font_sizes/font_size = 6
+text = "FRAGMENTOS DEL NEXO"
+horizontal_alignment = 1
+
+[node name="AxesTitle" type="Label" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.831373, 0.686275, 0.215686, 1)
+theme_override_font_sizes/font_size = 7
+text = "DOMINIO DE EJES DE PENSAMIENTO Y COMPETENCIAS"
+
+[node name="AxesList" type="VBoxContainer" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="FooterDivider" type="ColorRect" parent="ModalBox/MarginContainer/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.188235, 0.211765, 0.239216, 1)
+
+[node name="ButtonsRow" type="HBoxContainer" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="GenerateCertButton" type="Button" parent="ModalBox/MarginContainer/VBox/ButtonsRow"]
+custom_minimum_size = Vector2(245, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "GENERAR CERTIFICADO HTML (IMPRIMIBLE)"
+
+[node name="CopyClipboardButton" type="Button" parent="ModalBox/MarginContainer/VBox/ButtonsRow"]
+custom_minimum_size = Vector2(235, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "COPIAR EXTRACTO AL PORTAPAPELES"
+
+[node name="FeedbackLabel" type="Label" parent="ModalBox/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.901961, 0.462745, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+vertical_alignment = 1

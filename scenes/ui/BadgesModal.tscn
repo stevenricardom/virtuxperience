@@ -1,0 +1,169 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8d3esmd1k04v"]
+
+[ext_resource type="Script" path="res://scenes/ui/BadgesModal.gd" id="1_bdgmd"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/nine_path_7.png" id="2_np7"]
+[ext_resource type="Theme" path="res://resources/themes/main_pixel_theme.tres" id="3_thme"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal1.png" id="5_med1"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal2.png" id="6_med2"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal3.png" id="7_med3"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal4.png" id="8_med4"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal5.png" id="9_med5"]
+[ext_resource type="Texture2D" path="res://assets/ui/medals/PNG/flat_medal6.png" id="10_med6"]
+
+[node name="BadgesModal" type="CanvasLayer"]
+process_mode = 3
+layer = 25
+visible = false
+script = ExtResource("1_bdgmd")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.06, 0.1, 0.75)
+
+[node name="ModalBox" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(500, 300)
+offset_left = 70.0
+offset_top = 30.0
+offset_right = 570.0
+offset_bottom = 330.0
+mouse_filter = 0
+theme = ExtResource("3_thme")
+texture = ExtResource("2_np7")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="InnerBackdrop" type="ColorRect" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06, 0.09, 0.15, 0.98)
+
+[node name="HeaderBanner" type="ColorRect" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 28.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.09, 0.14, 0.22, 1)
+
+[node name="HeaderGoldDivider" type="ColorRect" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 6.0
+offset_top = 28.0
+offset_right = -6.0
+offset_bottom = 29.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.85, 0.72, 0.25, 0.75)
+
+[node name="TitleLabel" type="Label" parent="ModalBox"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 450.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_colors/font_outline_color = Color(0.02, 0.04, 0.08, 0.95)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "VITRINA DE INSIGNIAS Y LOGROS ACADÉMICOS"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="ModalBox"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 7.0
+offset_right = 492.0
+offset_bottom = 27.0
+theme = ExtResource("3_thme")
+text = "X"
+
+[node name="BadgesGrid" type="GridContainer" parent="ModalBox"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 34.0
+offset_right = 488.0
+offset_bottom = 256.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Card_0" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="Card_1" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="Card_2" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="Card_3" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="Card_4" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="Card_5" type="PanelContainer" parent="ModalBox/BadgesGrid"]
+custom_minimum_size = Vector2(153, 107)
+layout_mode = 2
+
+[node name="FooterDivider" type="ColorRect" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -40.0
+offset_right = -6.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.2, 0.26, 0.36, 0.6)
+
+[node name="SummaryButton" type="Button" parent="ModalBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -34.0
+offset_right = 140.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_thme")
+text = "VER REGISTRO Y CERTIFICADO DEL NEXO →"
+
+[connection signal="pressed" from="ModalBox/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ModalBox/SummaryButton" to="." method="_on_summary_button_pressed"]
