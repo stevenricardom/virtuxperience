@@ -1,0 +1,284 @@
+{
+  "biome_id": "voxcivitas",
+  "biome_name": "El Ágora Cívica & Foro Democrático",
+  "accent_color": "#9C27B0",
+  "guardian": {
+    "name": "CIVIS-1 (Tribuno del Ágora Democrática)",
+    "learning_capsule": [
+      "¡Salud, ciudadano del Conocimiento! Te encuentras en el Ágora Cívica, el espacio sagrado donde la deliberación democrática, los derechos constitucionales y el debate razonado cobran vida.",
+      "La ciudadanía activa no es un rol pasivo de mero espectador: exige movilizar voluntades ciudadanas, articular peticiones con respaldo social y defender propuestas frente al escrutinio público con argumentos sólidos y respetuosos.",
+      "Para reencender el Fuego Sagrado del Rostra y rescatar el Fragmento Amatista del Nexo, liderarás dos rondas de acción deliberativa: la recolección activa de firmas ciudadanas y la defensa de tu iniciativa en el podio, culminando con el reto Saber Pro de Competencias Ciudadanas."
+    ]
+  },
+  "reward": {
+    "fragment_id": "fragment_voxcivitas",
+    "badge_id": "badge_tribuno_democratico",
+    "badge_name": "Tribuno Democrático",
+    "completion_xp": 150,
+    "unlock_cosmetic": "civic_violet"
+  },
+  "adaptive_parameters": {
+    "consecutive_failures_trigger": 2,
+    "eliminated_options_count": 2,
+    "free_hint_enabled": true,
+    "soft_reset_on_depletion": true,
+    "reduced_threshold_enabled": true
+  },
+  "challenges": [
+    {
+      "id": "vc_action_01",
+      "type": "civic_agora_action",
+      "thought_axis": "Ciudadanía Activa y Habilidades para la Vida",
+      "difficulty": 1,
+      "title": "Nodo I: Acción Deliberativa en Dos Rondas — El Ágora",
+      "prompt": "Ronda 1: Recolecta firmas ciudadanas acercándote a los grupos con argumentos [1] o [2]. Ronda 2: Defiende la propuesta en el Podio Rostra respondiendo a las objeciones de la asamblea deliberativa:",
+      "xp_reward": 90,
+      "hint": "Identifica las prioridades del grupo deliberante (estudiantes, comerciantes, personas mayores). Un argumento respaldado en derechos constitucionales y bien común genera legitimidad inmediata.",
+      "hint_cost_xp": 10,
+      "passing_legitimacy": 80,
+      "rounds": [
+        {
+          "round": 1,
+          "id": "round_signatures",
+          "name": "Recolección Activa de Firmas Ciudadanas",
+          "target_signatures": 5,
+          "initial_legitimacy": 100,
+          "legitimacy_decay_rate": 1.5,
+          "citizen_groups": [
+            {
+              "id": "grp_students",
+              "name": "Colectivo Estudiantil Universitario",
+              "position": [160, 120],
+              "dialogue": "¿Por qué deberíamos respaldar con nuestras firmas el proyecto de subsidio a la tarifa de transporte público estudiantil?",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Equidad y permanencia educativa: 'El subsidio garantiza la igualdad de oportunidades, reduce la deserción universitaria y democratiza el acceso a la educación superior.'",
+                  "correct": true,
+                  "legitimacy_delta": 20,
+                  "signatures_gained": 1,
+                  "feedback": "¡Sólida argumentación de derechos! Vinculaste el transporte a la garantía constitucional de la educación."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Argumento facilista: 'Firme para que los buses sean gratis y no tengan que gastar dinero en pasajes.'",
+                  "correct": false,
+                  "legitimacy_delta": -15,
+                  "signatures_gained": 0,
+                  "feedback": "Un enfoque clientelista carece de sustento constitucional y despierta recelo en la comunidad."
+                }
+              ]
+            },
+            {
+              "id": "grp_merchants",
+              "name": "Asociación de Pequeños Comerciantes",
+              "position": [480, 120],
+              "dialogue": "Nos preocupa seriamente que financiar esta tarifa diferencial implique un aumento desmedido del impuesto de industria y comercio...",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Evasión: 'El progreso siempre exige sacrificios; los comerciantes simplemente tendrán que tributar más.'",
+                  "correct": false,
+                  "legitimacy_delta": -20,
+                  "signatures_gained": 0,
+                  "feedback": "Desestimar las cargas del sector productivo genera ruptura de consensos y pérdida de firmas."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Eficiencia presupuestal: 'El proyecto se financia reorientando excedentes de contratación y sin sobrecargar a los pequeños negocios locales.'",
+                  "correct": true,
+                  "legitimacy_delta": 20,
+                  "signatures_gained": 1,
+                  "feedback": "¡Responsabilidad hacendaria! Demostraste viabilidad fiscal sin lesionar la economía barrial."
+                }
+              ]
+            },
+            {
+              "id": "grp_seniors",
+              "name": "Consejo Consultivo de Personas Mayores",
+              "position": [160, 260],
+              "dialogue": "Exigimos saber si el nuevo modelo de transporte garantizará accesibilidad física real y rampas funcionales en todos los paraderos...",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Inclusión vinculante: 'El artículo 4 de la propuesta exige flota con piso bajo accesible y paraderos universales como requisito innegociable.'",
+                  "correct": true,
+                  "legitimacy_delta": 20,
+                  "signatures_gained": 1,
+                  "feedback": "¡Garantía de inclusión! Reafirmaste la protección constitucional reforzada a la tercera edad."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Aplazamiento técnico: 'Las rampas son costosas y se contemplarán solo si queda remanente de presupuesto en el futuro.'",
+                  "correct": false,
+                  "legitimacy_delta": -15,
+                  "signatures_gained": 0,
+                  "feedback": "Tratar la accesibilidad universal como accesorio vulnera el principio de no discriminación."
+                }
+              ]
+            },
+            {
+              "id": "grp_cyclists",
+              "name": "Colectivo de Movilidad Sostenible & Ciclistas",
+              "position": [480, 260],
+              "dialogue": "¿Cómo se integrará este sistema con la red de ciclorrutas y las metas de reducción de emisiones contaminantes?",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Intermodalidad verde: 'La iniciativa incluye biciparqueaderos seguros en cada estación de transferencia y transición gradual a buses eléctricos.'",
+                  "correct": true,
+                  "legitimacy_delta": 20,
+                  "signatures_gained": 1,
+                  "feedback": "¡Visión eco-social integral! Fusionaste movilidad no motorizada y descarbonización urbana."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Desconexión ambiental: 'Las bicicletas no son parte del sistema de transporte formal; cada quien debe circular por su cuenta.'",
+                  "correct": false,
+                  "legitimacy_delta": -15,
+                  "signatures_gained": 0,
+                  "feedback": "El aislamiento de modos sostenibles debilita la coherencia de la política pública urbana."
+                }
+              ]
+            },
+            {
+              "id": "grp_neighbors",
+              "name": "Asamblea Abierta de Familias del Sector",
+              "position": [320, 220],
+              "dialogue": "¿Cómo tendremos certeza de que los recursos asignados no terminen desviados por manejos clientelares?",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Veeduría comunitaria vinculante: 'Se crea un comité de veeduría ciudadana con auditorías abiertas y rendición de cuentas pública mensual.'",
+                  "correct": true,
+                  "legitimacy_delta": 20,
+                  "signatures_gained": 1,
+                  "feedback": "¡Control social transparente! Fomentaste el empoderamiento cívico frente a la gestión pública."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Burocratismo cerrado: 'La interventoría es un asunto estrictamente administrativo en el que los ciudadanos no deben intervenir.'",
+                  "correct": false,
+                  "legitimacy_delta": -20,
+                  "signatures_gained": 0,
+                  "feedback": "Cerrar las puertas al control social genera sospecha fundada y bloquea el apoyo vecinal."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "id": "round_defense",
+          "name": "Defensa de Propuesta en el Podio Rostra",
+          "target_consensus": 80,
+          "initial_legitimacy": 70,
+          "incoming_debates": [
+            {
+              "id": "deb_fiscal",
+              "interpellant": "Tribuno de la Comisión de Hacienda",
+              "objection": "¡Se objeta la viabilidad fiscal! Si el recaudo municipal sufre contingencias, financiar tarifas subsidiadas provocará un déficit presupuestal irreversible.",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Eficiencia y priorización: 'La propuesta crea un fondo de estabilización con ingresos por plusvalía urbana y recorta un 15% de gastos en publicidad institucional.'",
+                  "correct": true,
+                  "consensus_delta": 30,
+                  "legitimacy_delta": 20,
+                  "feedback": "¡Argumento de rigor presupuestal! Convenciste a los voceros hacendarios de la sostenibilidad de la medida."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Falacia ad hominem: '¡Usted se opone porque prefiere beneficiar a las grandes contratistas privadas y no al pueblo!'",
+                  "correct": false,
+                  "consensus_delta": -20,
+                  "legitimacy_delta": -25,
+                  "feedback": "El ataque personal polariza la asamblea y destruye la legitimidad deliberativa del tribuno."
+                }
+              ]
+            },
+            {
+              "id": "deb_legal",
+              "interpellant": "Tribuno de la Veeduría Constitucional",
+              "objection": "¡Se objeta la competencia territorial! ¿Acaso no desborda la asamblea municipal sus facultades al fijar tarifas sin un marco reglamentario previo?",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Desacato normativo: 'La voluntad popular está por encima de las leyes y normas procesales preestablecidas.'",
+                  "correct": false,
+                  "consensus_delta": -25,
+                  "legitimacy_delta": -30,
+                  "feedback": "Violar el principio de legalidad anula de pleno derecho cualquier acuerdo deliberativo."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Autonomía territorial armonizada: 'El artículo 287 constitucional faculta a los entes territoriales para reglamentar servicios públicos en el marco de la ley nacional de transporte.'",
+                  "correct": true,
+                  "consensus_delta": 30,
+                  "legitimacy_delta": 20,
+                  "feedback": "¡Sustentación constitucional impecable! Blindaste el proyecto en el marco del Estado Social de Derecho."
+                }
+              ]
+            },
+            {
+              "id": "deb_opposition",
+              "interpellant": "Tribuno de la Minoría Deliberante",
+              "objection": "¡Se objeta el consenso! Esta iniciativa representa únicamente a grupos organizados ruidosos, soslayando a las minorías que no asistieron a los foros previos.",
+              "options": [
+                {
+                  "id": "opt_1",
+                  "text": "[1] Deliberación abierta continua: 'Se programarán dos audiencias de seguimiento en barrios periféricos y una mesa técnica permanente para recoger aportes de las minorías.'",
+                  "correct": true,
+                  "consensus_delta": 30,
+                  "legitimacy_delta": 20,
+                  "feedback": "¡Consenso democrático consolidado! Demostraste que la democracia deliberativa incluye y escucha a la disidencia."
+                },
+                {
+                  "id": "opt_2",
+                  "text": "[2] Imposición de mayorías: 'La mayoría de firmas ya manda; los sectores minoritarios deben acatar la decisión sin quejarse.'",
+                  "correct": false,
+                  "consensus_delta": -25,
+                  "legitimacy_delta": -25,
+                  "feedback": "La tiranía de la mayoría contradice la esencia de la deliberación democrática pluralista."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation_on_error": "Si la legitimidad de la asamblea llega a cero, la ronda actual se reinicia suavemente. Tras 2 fallos consecutivos se activa la asistencia adaptativa (menor umbral requerido de firmas y mayor ponderación por réplica correcta)."
+    },
+    {
+      "id": "vc_saberpro_02",
+      "type": "saber_pro_citizenship",
+      "thought_axis": "Ciudadanía Activa y Habilidades para la Vida",
+      "difficulty": 2,
+      "time_limit_seconds": 60,
+      "title": "Nodo II: Evaluación Saber Pro — Competencias Ciudadanas y Mecanismos Constitucionales",
+      "prompt": "Un colectivo juvenil y estudiantil de una ciudad convoca a una manifestación pacífica en las vías públicas para exigir mayor presupuesto e inversión en bibliotecas comunitarias y polideportivos. La alcaldía municipal expide un decreto administrativo prohibiendo de manera indefinida toda marcha o concentración pública en el centro de la ciudad, argumentando la necesidad de garantizar la fluidez del tránsito vehicular y la actividad comercial ordinaria.\n\nDe conformidad con la Constitución Política y la jurisprudencia constitucional sobre derechos fundamentales, ¿cuál es la valoración jurídica correcta sobre esta situación y el instrumento idóneo para los ciudadanos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "El decreto vulnera de forma desproporcionada los derechos fundamentales de reunión y protesta pacífica; los ciudadanos pueden interponer una Acción de Tutela para su amparo judicial expedito."
+        },
+        {
+          "id": "b",
+          "label": "La medida municipal es inobjetable porque el derecho individual al tránsito en automóvil prevalece jerárquicamente sobre el derecho colectivo a manifestarse pacíficamente."
+        },
+        {
+          "id": "c",
+          "label": "Los manifestantes deben renunciar a la vía judicial e iniciar un bloqueo permanente y violento de las vías hasta que el alcalde renuncie a su cargo."
+        },
+        {
+          "id": "d",
+          "label": "Los ciudadanos deben aguardar pasivamente al próximo período electoral para promover la elección de un nuevo cabildo que derogue el decreto."
+        }
+      ],
+      "correct_option": "a",
+      "hint": "El derecho a la protesta social pacífica es un pilar fundamental en una democracia constitucional. Las restricciones de la autoridad no pueden ser absolutas ni arbitrarias, y la Acción de Tutela protege derechos fundamentales frente a actos administrativos inconstitucionales.",
+      "hint_cost_xp": 10,
+      "xp_reward": 60,
+      "explanation_on_error": "La opción correcta es la A. La Constitución Política ampara el derecho a reunirse y manifestarse públicamente de forma pacífica. Una prohibición general e indeterminada vulnera el núcleo esencial de este derecho. La Acción de Tutela constituye el mecanismo preferente y sumario para ordenar a la autoridad restablecer de inmediato las garantías constitucionales."
+    }
+  ]
+}

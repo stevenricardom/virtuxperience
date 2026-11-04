@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://agorapodiumterminal001"]
+
+[ext_resource type="Script" path="res://scenes/biomes/voxcivitas/AgoraPodiumTerminal.gd" id="1_podium"]
+[ext_resource type="Texture2D" path="res://assets/comunicarte/generic_items/PNG/Colored/genericItem_color_035.png" id="2_spr"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_col"]
+size = Vector2(32, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_int"]
+radius = 44.0
+
+[node name="AgoraPodiumTerminal" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_podium")
+target_scene = "res://scenes/biomes/voxcivitas/VoxCivitasMinigame.tscn"
+
+[node name="CoreGlow" type="Polygon2D" parent="."]
+color = Color(0.611765, 0.152941, 0.690196, 0.45)
+polygon = PackedVector2Array(-42, 20, -28, 28, 0, 30, 28, 28, 42, 20, 46, 2, 34, -18, 0, -24, -34, -18, -46, 2)
+
+[node name="MarbleOuterStep" type="Polygon2D" parent="."]
+color = Color(0.82, 0.79, 0.86, 0.96)
+polygon = PackedVector2Array(-34, 16, 34, 16, 38, 4, 30, -12, -30, -12, -38, 4)
+
+[node name="MarbleInnerDais" type="Polygon2D" parent="."]
+color = Color(0.93, 0.91, 0.96, 0.98)
+polygon = PackedVector2Array(-28, 12, 28, 12, 31, 2, 24, -9, -24, -9, -31, 2)
+
+[node name="RoyalCarpetRunner" type="Polygon2D" parent="."]
+color = Color(0.52, 0.12, 0.62, 0.95)
+polygon = PackedVector2Array(-10, 16, 10, 16, 8, -10, -8, -10)
+
+[node name="GoldTrimBorder" type="Line2D" parent="."]
+closed = true
+width = 1.5
+default_color = Color(1, 0.843, 0, 0.88)
+points = PackedVector2Array(-28, 12, 28, 12, 31, 2, 24, -9, -24, -9, -31, 2)
+
+[node name="LeftPillar" type="Polygon2D" parent="."]
+position = Vector2(-22, -4)
+color = Color(0.95, 0.93, 0.98, 1)
+polygon = PackedVector2Array(-4, 12, 4, 12, 4, -14, 6, -14, 6, -17, -6, -17, -6, -14, -4, -14)
+
+[node name="RightPillar" type="Polygon2D" parent="."]
+position = Vector2(22, -4)
+color = Color(0.95, 0.93, 0.98, 1)
+polygon = PackedVector2Array(-4, 12, 4, 12, 4, -14, 6, -14, 6, -17, -6, -17, -6, -14, -4, -14)
+
+[node name="RostraPedestal" type="Polygon2D" parent="."]
+position = Vector2(0, 2)
+color = Color(0.75, 0.71, 0.82, 1)
+polygon = PackedVector2Array(-12, 8, 12, 8, 10, -8, -10, -8)
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_spr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_col")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_int")
+
+[node name="PromptBadge" type="NinePatchRect" parent="InteractionArea"]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -42.0
+offset_right = 8.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PromptLabel" type="Label" parent="InteractionArea/PromptBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
