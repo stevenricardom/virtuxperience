@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://prototypeworkbench001"]
+
+[ext_resource type="Script" path="res://scenes/biomes/activatuidea/PrototypeWorkbench.gd" id="1_bench"]
+[ext_resource type="Texture2D" path="res://assets/neuromath/scifi_rts/PNG/Default size/Structure/scifiStructure_07.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://assets/characters/ninja_adventure/theme/theme_1/nine_path_panel.png" id="3_panel"]
+[ext_resource type="FontFile" path="res://assets/characters/ninja_adventure/theme/font_normal.ttf" id="4_font"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_col"]
+size = Vector2(48, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_int"]
+radius = 44.0
+
+[node name="PrototypeWorkbench" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("1_bench")
+target_scene = "res://scenes/biomes/activatuidea/ActivaTuIdeaMinigame.tscn"
+
+[node name="CoreGlow" type="Polygon2D" parent="."]
+color = Color(1, 0.5490196, 0, 0.42)
+polygon = PackedVector2Array(-40, 26, 40, 26, 46, 0, 34, -26, -34, -26, -46, 0)
+
+[node name="ForgePlatformBase" type="Polygon2D" parent="."]
+color = Color(0.24, 0.18, 0.14, 0.92)
+polygon = PackedVector2Array(-32, 20, 32, 20, 36, 0, 26, -20, -26, -20, -36, 0)
+
+[node name="HazardOctagonRing" type="Line2D" parent="."]
+closed = true
+width = 1.5
+default_color = Color(1, 0.65, 0.1, 0.88)
+points = PackedVector2Array(-32, 20, 32, 20, 36, 0, 26, -20, -26, -20, -36, 0)
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_col")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="InteractionShape" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_int")
+
+[node name="PromptBadge" type="NinePatchRect" parent="InteractionArea"]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -36.0
+offset_right = 8.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="PromptLabel" type="Label" parent="InteractionArea/PromptBadge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

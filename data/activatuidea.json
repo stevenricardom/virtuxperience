@@ -1,0 +1,125 @@
+{
+  "biome_id": "activatuidea",
+  "biome_name": "Fábrica de Innovación & Taller de Prototipado",
+  "accent_color": "#FF8C00",
+  "guardian": {
+	"name": "FORGE-X (Ingeniero Jefe de Prototipos)",
+	"learning_capsule": [
+	  "¡Bienvenido a la Fábrica de Innovación! Aquí transformamos ideas abstractas en prototipos tangibles y modelos de negocio sostenibles.",
+	  "Innovar no es esperar una chispa mágica: es aplicar método. El Lean Canvas nos permite estructurar la propuesta de valor y los clientes, mientras que la ingeniería de prototipado balancea presupuesto limitado con estándares rigurosos de calidad.",
+      "Para restablecer el Reactor Térmico y rescatar el Fragmento Naranja del Nexo, deberás superar los 3 Nodos de Innovación: el Lienzo de Negocio 2×2, la Línea de Ensamblaje y el Desafío Saber Pro de Emprendimiento."
+	]
+  },
+  "reward": {
+	"fragment_id": "fragment_activatuidea",
+	"badge_id": "badge_innovador_disruptivo",
+	"badge_name": "Innovador Disruptivo",
+	"completion_xp": 150,
+	"unlock_cosmetic": "innovator_orange"
+  },
+  "adaptive_parameters": {
+	"consecutive_failures_trigger": 3,
+	"eliminated_options_count": 2,
+	"free_hint_enabled": true
+  },
+  "challenges": [
+	{
+	  "id": "act_canvas_01",
+	  "type": "business_canvas",
+	  "thought_axis": "Innovación y Modelado de Emprendimiento",
+	  "difficulty": 1,
+	  "title": "Nodo I: El Lienzo de Modelo de Negocio (Lean Canvas 2×2)",
+	  "prompt": "Ubica cada componente estratégico en su cuadrante correspondiente para estructurar la viabilidad de la startup:",
+	  "blocks": [
+		{"id": "q1", "label": "Problema & Solución", "expected_card": "card_prob_sol"},
+		{"id": "q2", "label": "Propuesta Única de Valor", "expected_card": "card_value_prop"},
+		{"id": "q3", "label": "Segmento de Clientes & Canales", "expected_card": "card_customers"},
+		{"id": "q4", "label": "Estructura de Costos & Flujo de Ingresos", "expected_card": "card_finance"}
+	  ],
+	  "cards": [
+		{"id": "card_prob_sol", "text": "Falta de acceso a laboratorios físicos / Simuladores virtuales en la nube"},
+		{"id": "card_value_prop", "text": "Entorno inmersivo gamificado accesible 24/7 sin hardware costoso"},
+		{"id": "card_customers", "text": "Estudiantes universitarios a distancia y docentes de ingeniería"},
+		{"id": "card_finance", "text": "Costos de servidores cloud / Modelo de suscripción institucional"}
+	  ],
+	  "correct_mapping": {
+		"q1": "card_prob_sol",
+		"q2": "card_value_prop",
+		"q3": "card_customers",
+		"q4": "card_finance"
+	  },
+	  "hint": "Comienza por definir el dolor del usuario y cómo lo resuelves (Q1), luego define qué te hace único frente a alternativas (Q2).",
+	  "hint_cost_xp": 10,
+	  "xp_reward": 50,
+	  "explanation_on_error": "Un modelo Lean Canvas coherente articula la necesidad (Problema/Solución), el diferenciador (Propuesta de Valor), el mercado objetivo (Clientes/Canales) y la viabilidad económica (Costos/Ingresos)."
+	},
+	{
+	  "id": "act_factory_02",
+	  "type": "tiny_factory_line",
+	  "thought_axis": "Innovación y Modelado de Emprendimiento",
+	  "difficulty": 2,
+	  "title": "Nodo II: Simulación de Línea de Prototipado Rápido",
+	  "prompt": "Configura las 3 estaciones de ensamblaje para producir el MVP cumpliendo con el presupuesto máximo y el estándar de calidad mínimo:",
+	  "max_budget": 10000,
+	  "min_quality": 80,
+	  "stations": [
+		{
+		  "id": "st_design",
+		  "name": "Estación 1: Modelado & Diseño CAD",
+		  "options": [
+			{"id": "opt_d1", "label": "Bocetado Rápido Manual", "cost": 1500, "quality": 60},
+			{"id": "opt_d2", "label": "Modelado Paramétrico 3D", "cost": 3000, "quality": 85},
+			{"id": "opt_d3", "label": "Simulación Holográfica IA", "cost": 6000, "quality": 95}
+		  ]
+		},
+		{
+		  "id": "st_assembly",
+		  "name": "Estación 2: Fabricación & Ensamblaje",
+		  "options": [
+			{"id": "opt_a1", "label": "Impresión 3D PLA Básica", "cost": 2000, "quality": 65},
+			{"id": "opt_a2", "label": "Mecanizado CNC de Precisión", "cost": 4000, "quality": 85},
+			{"id": "opt_a3", "label": "Sinterizado Láser de Titanio", "cost": 7500, "quality": 98}
+		  ]
+		},
+		{
+		  "id": "st_qa",
+		  "name": "Estación 3: Control de Calidad & Certificación",
+		  "options": [
+			{"id": "opt_q1", "label": "Inspección Visual Muestral", "cost": 1000, "quality": 60},
+			{"id": "opt_q2", "label": "Pruebas de Estrés Automatizadas", "cost": 2500, "quality": 90},
+			{"id": "opt_q3", "label": "Certificación Aeroespacial Externa", "cost": 5000, "quality": 99}
+		  ]
+		}
+	  ],
+	  "optimal_selection": {
+		"st_design": "opt_d2",
+		"st_assembly": "opt_a2",
+		"st_qa": "opt_q2"
+	  },
+	  "hint": "El balance óptimo requiere componentes de calidad media-alta (85-90%) en cada etapa sin exceder el techo de $10,000.",
+	  "hint_cost_xp": 10,
+	  "xp_reward": 50,
+	  "explanation_on_error": "La combinación óptima (Modelado Paramétrico $3000/85% + CNC $4000/85% + Pruebas Automatizadas $2500/90%) suma $9,500 de costo y 86.6% de calidad, satisfaciendo ambas restricciones."
+	},
+	{
+	  "id": "act_saberpro_03",
+	  "type": "saber_pro_innovation",
+	  "thought_axis": "Innovación y Modelado de Emprendimiento",
+	  "difficulty": 3,
+	  "time_limit_seconds": 60,
+	  "title": "Nodo III: Diagnóstico de Innovación & Metodología Saber Pro",
+	  "prompt": "Un equipo de emprendedores tecnológicos desarrolla un prototipo complejo durante 18 meses sin interacción con usuarios, invirtiendo el 90% de su capital. Al lanzar al mercado, descubren que los clientes preferían una solución simplificada en mensajería móvil.\n\nDe acuerdo con la metodología Lean Startup, ¿cuál fue el error metodológico principal del equipo?",
+	  "options": [
+		{"id": "a", "label": "No haber invertido suficiente presupuesto en publicidad masiva antes del lanzamiento."},
+		{"id": "b", "label": "No haber construido un Producto Mínimo Viable (MVP) para validar hipótesis tempranas con usuarios reales."},
+		{"id": "c", "label": "Haber utilizado herramientas de software de código abierto en lugar de patentes cerradas."},
+		{"id": "d", "label": "No haber delegado la toma de decisiones técnicas a una consultora externa de ingeniería."}
+	  ],
+	  "correct_option": "b",
+	  "hint": "El núcleo del método Lean es el ciclo iterativo 'Crear - Medir - Aprender' mediante experimentos rápidos y económicos.",
+	  "hint_cost_xp": 10,
+	  "xp_reward": 60,
+	  "explanation_on_error": "El principio cardinal de Lean Startup es el aprendizaje validado mediante MVPs tempranos (opción B). Invertir 18 meses sin retroalimentación real maximiza el riesgo de construir un producto que nadie desea."
+	}
+  ]
+}
